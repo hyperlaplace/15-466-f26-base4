@@ -27,6 +27,7 @@ if (maek.OS === "windows") {
 	maek.options.CPPFlags.push(
 		`/O2`, //optimize
 		`/D_USE_MATH_DEFINES`, //make sure M_PI exists
+		`/utf-8`, //some nest-lib headers (e.g. harfbuzz's) contain UTF-8 text; without this cl.exe reads them via the system codepage and (on non-English Windows) chokes on it
 		//include paths for nest libraries:
 		`/I${NEST_LIBS}/SDL3/include`,
 		`/I${NEST_LIBS}/glm/include`,
@@ -149,11 +150,17 @@ if (maek.OS === 'windows') {
 // cppFile: name of c++ file to compile
 // objFileBase (optional): base name object file to produce (if not supplied, set to options.objDir + '/' + cppFile without the extension)
 //returns objFile: objFileBase + a platform-dependant suffix ('.o' or '.obj')
+const load_save_png_obj = maek.CPP('load_save_png.cpp');
+const story_obj = maek.CPP('Story.cpp');
+
 const game_names = [
 	maek.CPP('PlayMode.cpp'),
 	maek.CPP('main.cpp'),
 	maek.CPP('LitColorTextureProgram.cpp'),
-	//maek.CPP('ColorTextureProgram.cpp'),  //not used right now, but you might want it
+	maek.CPP('ColorTextureProgram.cpp'),
+	maek.CPP('Font.cpp'),
+	maek.CPP('TextRenderer.cpp'),
+	story_obj,
 	maek.CPP('Sound.cpp'),
 	maek.CPP('load_wav.cpp'),
 	maek.CPP('load_opus.cpp')
@@ -167,7 +174,7 @@ const common_names = [
 	maek.CPP('ColorProgram.cpp'),
 	maek.CPP('Scene.cpp'),
 	maek.CPP('Mesh.cpp'),
-	maek.CPP('load_save_png.cpp'),
+	load_save_png_obj,
 	maek.CPP('gl_compile_program.cpp'),
 	maek.CPP('Mode.cpp'),
 	maek.CPP('GL.cpp'),
@@ -187,7 +194,13 @@ const show_scene_names = [
 ];
 
 const freetype_test_names = [
-	maek.CPP('freetype-test.cpp')
+	maek.CPP('freetype-test.cpp'),
+	load_save_png_obj
+];
+
+const story_test_names = [
+	maek.CPP('story-test.cpp'),
+	story_obj
 ];
 
 //the '[exeFile =] LINK(objFiles, exeFileBase, [, options])' links an array of objects into an executable:
@@ -199,9 +212,10 @@ const show_meshes_exe = maek.LINK([...show_meshes_names, ...common_names], 'scen
 const show_scene_exe = maek.LINK([...show_scene_names, ...common_names], 'scenes/show-scene');
 
 const freetype_test_exe = maek.LINK([...freetype_test_names], 'freetype-test');
+const story_test_exe = maek.LINK([...story_test_names], 'story-test');
 
 //set the default target to the game (and copy the readme files):
-maek.TARGETS = [game_exe, show_meshes_exe, show_scene_exe, freetype_test_exe, ...copies];
+maek.TARGETS = [game_exe, show_meshes_exe, show_scene_exe, freetype_test_exe, story_test_exe, ...copies];
 
 //Note that tasks that produce ':abstract targets' are never cached.
 // This is similar to how .PHONY targets behave in make.

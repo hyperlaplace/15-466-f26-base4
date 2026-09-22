@@ -1,0 +1,71 @@
+:: Start
+Your phone alarm goes off for the third time. You can't remember what you dreamed about last night, but the ringtone feels strangely familiar -- like you've heard it many times before.
+
+[[Get up->Wash]]
+[[Sleep five more minutes->EndOversleep]]
+
+:: EndOversleep
+You drift back into a groggy sleep. When you open your eyes again, the phone screen says it's already afternoon. Oh no -- you've missed today's exam.
+
+:: Wash
+The face in the mirror looks perfectly normal. The calendar on the wall says it's Friday. Great -- tomorrow's a well-earned weekend.
+
+[[Head out without a second thought->Commute]]
+[[Take a second look at the calendar->Calendar]]
+
+:: Calendar
+The calendar is stuck on the same page, its corner curled from being flipped through again and again. Something in you skips a beat -- but you're about to be late.
+
+[[Never mind, better get to school->Commute]]
+
+:: Commute
+The breakfast stall on the corner has its steamer baskets going, white steam rolling off in thick puffs. The owner drops another batch of youtiao into the oil, each stick swelling instantly with golden bubbles, oil spitting and crackling against the tin counter -- the whole street smells of flour and hot oil. You buy soy milk and a stick of youtiao, the coin landing in the enamel jar with a sound as clean as a small bell. At the crosswalk, a loudspeaker on the utility pole crackles through the morning news. The light turns green, and you cross with the flow of people; the school gate's phoenix tree throws a long shadow across the path you're about to walk.
+
+[[Walk through the school gate->Classroom]]
+[[Take the long way, just to see if anything's different->EndDetour]]
+
+:: EndDetour
+You take the detour, but at one corner the street scenery suddenly blurs, like an unfinished background painting. You quicken your pace and still end up walking through the same familiar gate -- but you're late all the same, and you miss the exam.
+
+:: Classroom
+The teacher writes the same problem on the blackboard. Your deskmate mutters a sentence, and you find you can already recite its second half before she finishes it. For a second you can't tell whether this is a memory or something actually happening.
+
+[[Put your head down and doze off->EndNap]]
+[[Force yourself to sit through the class->Lunch]]
+
+:: EndNap
+The teacher catches you. You get an earful. What rotten luck.
+
+:: Lunch
+The cafeteria is a wall of noise, trays clattering against the steel counter, the smell of food mixing with disinfectant in the air. You wait in the long line with your tray -- today it's tomato and scrambled eggs, shredded potato, and a golden-fried chicken leg. You find a seat by the window; outside, the phoenix tree's leaves rustle in the wind, their dappled shadow swaying back and forth across the table. The radio station is playing an old song, and halfway through the verse you find yourself humming the next line before it comes -- even the singer's breath catches exactly where you expect it to.
+
+[[Go out to the yard and shoot some hoops->Yard]]
+[[Go back to the classroom and rest your head down->EndNap]]
+
+:: Yard
+The basketball thuds against the ground. You try shot after shot, but none of them go in. Maybe I've just gotten worse, you think to yourself.
+
+[[Head back to class->Evening]]
+[[Crouch down and look closely at your own shadow->Shadow]]
+
+:: Shadow
+At high noon the edges of a shadow should be soft, blurred -- but yours is unnaturally crisp, as if someone had traced its outline with a ruler. The sun really is strong today, you tell yourself.
+
+[[Head back to class->Evening]]
+
+:: Evening
+The final bell rings. Streetlights flick on one after another, in exactly the order you remember. Back home, you stand at the edge of your bed, hesitating over whether to lie down and sleep.
+
+[[You can't make sense of it -- might as well go to sleep->EndLoop]]
+[[Think back carefully over the day, and where it went wrong->Reflect]]
+
+:: EndLoop
+You lie down and close your eyes. In the dark, your phone alarm rings three times -- exactly like it did this morning.
+
+:: Reflect
+The calendar. The blurred corner. The unnaturally sharp shadow... You count them off, one by one, and suddenly understand: this isn't a new day. It's the same day -- one you've already lived through, over and over.
+
+[[Tell yourself, quietly: it's time to wake up->EndWake]]
+
+:: EndWake
+Your eyes snap open. The exam! You're going to be late! -- that's the first thought that hits you. You glance at your phone. It's Saturday. You're fine.
